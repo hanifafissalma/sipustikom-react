@@ -8,7 +8,7 @@ import UbahAplikasi from './UbahAplikasi';
 import HapusAplikasi from './HapusAplikasi';
 import Rest from 'fetch-on-rest';
 import $ from 'jquery';
-import {addOptions} from './config.js';
+import {addOptions, service} from './config.js';
 
 $.DataTable = require('datatables.net-bs');
 
@@ -18,7 +18,7 @@ class Aplikasi extends Component{
     this.state={
       aplikasi:[]
     }
-    this.api= new Rest('http://localhost/sipustikom-service/public/api',addOptions,false);
+    this.api= new Rest(service,addOptions,false);
   }
   componentDidMount(){
     this.getDataAplikasi();

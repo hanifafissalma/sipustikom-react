@@ -11,7 +11,8 @@ import {
   Tooltip
 } from 'react-bootstrap';
 import Rest from 'fetch-on-rest';
-import {addOptions} from './config.js';
+import {addOptions, service} from './config.js';
+
 var serialize = require('form-serialize');
 
 class UbahUser extends Component{
@@ -20,7 +21,7 @@ class UbahUser extends Component{
     this.state = {
       modalFormUser: false,
     };
-    this.api = new Rest ("http://localhost/sipustikom-service/public/api/user",addOptions,false);
+    this.api = new Rest (service,addOptions,false);
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,7 +41,7 @@ class UbahUser extends Component{
     event.preventDefault();
     var str = serialize(event.target, {hash:true});
 
-    this.api.post('save',str).then(
+    this.api.post('user/save',str).then(
       (res)=>{
         this.close();
         window.location.reload();

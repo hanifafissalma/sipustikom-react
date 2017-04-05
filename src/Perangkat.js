@@ -9,7 +9,7 @@ import HapusPerangkat from './HapusPerangkat';
 import LihatPerangkat from './LihatPerangkat';
 import Rest from 'fetch-on-rest';
 import $ from 'jquery';
-import {addOptions} from './config.js';
+import {addOptions, service} from './config.js';
 
 $.Datatable = require('datatables.net-bs');
 
@@ -19,14 +19,14 @@ class Perangkat extends Component {
     this.state={
       perangkat:[]
     };
-    this.api=new Rest("http://localhost/sipustikom-service/public/api/device",addOptions,false);
+    this.api=new Rest(service,addOptions,false);
   }
   componentDidMount(){
     this.getDataPerangkat();
   }
   getDataPerangkat(){
     var self= this;
-    this.api.get('all').then(
+    this.api.get('device/all').then(
       (res)=>{
         self.setState({
           perangkat:res.data

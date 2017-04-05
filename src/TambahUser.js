@@ -9,7 +9,7 @@ import {
   ControlLabel
 } from 'react-bootstrap';
 import Rest from 'fetch-on-rest';
-import {addOptions} from './config.js';
+import {addOptions, service} from './config.js';
 var serialize = require('form-serialize');
 
 class TambahUser extends Component{
@@ -18,7 +18,7 @@ class TambahUser extends Component{
     this.state = {
       modalFormUser: false
     };
-    this.api = new Rest ("http://localhost/sipustikom-service/public/api/user",addOptions,false);
+    this.api = new Rest (service,addOptions,false);
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,7 +36,7 @@ class TambahUser extends Component{
     e.preventDefault();
     var abc = serialize(e.target,{ hash: true });
 
-    this.api.post('save',abc).then(
+    this.api.post('user/save',abc).then(
       (res)=>{
         this.close();
         window.location.reload();

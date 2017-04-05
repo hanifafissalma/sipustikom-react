@@ -7,14 +7,15 @@ import {
   Tooltip
 } from 'react-bootstrap';
 import Rest from 'fetch-on-rest';
-import {addOptions} from './config.js';
+import {addOptions, service} from './config.js';
+
 class HapusUser extends Component{
   constructor(props) {
     super(props);
     this.state = {
       modalFormUser: false
     };
-    this.api = new Rest ("http://localhost/sipustikom-service/public/api/user",addOptions,false);
+    this.api = new Rest (service,addOptions,false);
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,7 +31,7 @@ class HapusUser extends Component{
 
   handleSubmit(e){
     e.preventDefault();
-    this.api.del('delete/'+this.props.user.id).then(
+    this.api.del('user/delete/'+this.props.user.id).then(
       (res)=>{
         this.close();
         window.location.reload();

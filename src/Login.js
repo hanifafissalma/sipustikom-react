@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 import Rest from 'fetch-on-rest';
 import cookie from 'react-cookie';
+import {addOptions, service} from './config.js';
 
 var serialize= require('form-serialize');
 
@@ -14,7 +15,7 @@ class Login extends Component{
       token: cookie.load('ncess')
     };
 
-    this.api = new Rest('http://localhost/sipustikom-service/public/api');
+    this.api = new Rest(service);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 

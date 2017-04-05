@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import Rest from 'fetch-on-rest';
-import {addOptions} from './config.js';
+import {addOptions, service} from './config.js';
 
 class Aside extends Component{
   constructor(){
     super();
-    this.api= new Rest('http://localhost/sipustikom-service/public/api',addOptions,false);
+    this.api= new Rest(service,addOptions,false);
     this.getUser();
     this.state={
       user:{}
@@ -19,6 +19,10 @@ class Aside extends Component{
         this.setState({
           user:res
         })
+      },
+      (err) => {
+        console.log("Auth Failed");
+        window.location.replace('http://192.168.16.167/login')
       }
     )
   }

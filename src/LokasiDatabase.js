@@ -8,7 +8,7 @@ import UbahLokasiDatabase from './UbahLokasiDatabase';
 import HapusLokasiDatabase from './HapusLokasiDatabase';
 import Rest from 'fetch-on-rest';
 import $ from 'jquery';
-import {addOptions} from './config.js';
+import {addOptions, service} from './config.js';
 
 $.Datatable = require('datatables.net-bs');
 
@@ -18,7 +18,7 @@ class LokasiDatabase extends Component{
     this.state={
       lokasiDatabase:[]
     }
-    this.api=new Rest('http://localhost/sipustikom-service/public/api/',addOptions,false);
+    this.api=new Rest(service,addOptions,false);
   }
   componentDidMount(){
     this.getLokasiDatabase();

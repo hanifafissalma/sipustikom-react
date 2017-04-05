@@ -5,7 +5,7 @@ class Footer extends Component{
     return(
       <div>
         <footer className="main-footer">
-          <strong>Pustikom Developer UNJ.</strong>
+          <strong>Copyright &copy; 2017 | UPT TIK UNJ.</strong>
         </footer>
       </div>
     )

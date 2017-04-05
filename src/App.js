@@ -31,7 +31,7 @@ class App extends Component{
           <PrivateRoute path="/perangkat" component={()=>(<Perangkat/>)} />
           <PrivateRoute path="/lokasiperangkat" component={()=>(<LokasiPerangkat/>)} />
           <PrivateRoute path="/lokasidatabase" component={()=>(<LokasiDatabase/>)} />
-          <PrivateRoute path="/aplikasi" component={()=>(<Aplikasi/>)} />]
+          <PrivateRoute path="/aplikasi" component={()=>(<Aplikasi/>)} />
         </div>
       </Router>
     );

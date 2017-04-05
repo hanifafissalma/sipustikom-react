@@ -9,7 +9,7 @@ import {
   ControlLabel
 } from 'react-bootstrap';
 import Rest from 'fetch-on-rest';
-import {addOptions} from './config.js';
+import {addOptions, service} from './config.js';
 var serialize = require('form-serialize');
 
 class TambahAplikasi extends Component{
@@ -20,7 +20,7 @@ class TambahAplikasi extends Component{
       jenisAplikasi:[],
       lokasiDatabase:[]
     };
-    this.api = new Rest('http://localhost/sipustikom-service/public/api',addOptions,false);
+    this.api = new Rest(service,addOptions,false);
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);

@@ -1,4 +1,5 @@
 {
+  "homepage": "http://192.168.16.167",
   "name": "sipustikom-react",
   "version": "0.1.0",
   "private": true,
@@ -15,11 +16,8 @@
     "react-bootstrap": "^0.30.8",
     "react-cookie": "^1.0.5",
     "react-dom": "^15.4.2",
-    "react-numeric-input": "^2.0.7"
-  },
-  "devDependencies": {
-    "react-router-dom": "^4.0.0",
-    "react-scripts": "0.9.5"
+    "react-numeric-input": "^2.0.7",
+    "react-router-dom": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

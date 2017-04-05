@@ -7,7 +7,7 @@ import TambahLokasiPerangkat from './TambahLokasiPerangkat';
 import UbahLokasiPerangkat from './UbahLokasiPerangkat';
 import Rest from 'fetch-on-rest';
 import $ from 'jquery';
-import {addOptions} from './config.js';
+import {addOptions, service} from './config.js';
 
 $.Datatable = require('datatables.net-bs');
 class LokasiPerangkat extends Component{
@@ -16,7 +16,7 @@ class LokasiPerangkat extends Component{
     this.state={
       LokasiPerangkat:[]
     }
-    this.api=new Rest('http://localhost/sipustikom-service/public/api',addOptions,false);
+    this.api=new Rest(service,addOptions,false);
   }
 
   componentDidMount(){

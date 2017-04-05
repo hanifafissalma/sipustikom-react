@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 import Rest from 'fetch-on-rest';
 import cookie from 'react-cookie';
+import {addOptions, service} from './config.js';
 
 class Header extends Component{
   constructor(){
@@ -11,7 +12,7 @@ class Header extends Component{
     this.state={
       token: cookie.load('ncess')
     };
-    this.api = new Rest('https://localhost/sipustikom-service/public/api');
+    this.api = new Rest(service);
     this.logout = this.logout.bind(this);
   }
   logout(e){

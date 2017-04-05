@@ -8,7 +8,7 @@ import UbahUser from './UbahUser';
 import HapusUser from './HapusUser';
 import Rest from 'fetch-on-rest';
 import $ from 'jquery';
-import {addOptions} from './config.js';
+import {addOptions, service} from './config.js';
 
 $.DataTable = require('datatables.net-bs');
 
@@ -18,14 +18,14 @@ class Home extends Component {
     this.state={
       user:[]
     };
-    this.api = new Rest ("http://localhost/sipustikom-service/public/api/user",addOptions,false);
+    this.api = new Rest (service,addOptions,false);
   }
   componentDidMount(){
     this.getDataUser();
   }
   getDataUser(){
     var self = this;
-    this.api.get('all').then(
+    this.api.get('user/all').then(
       (res) => {
         self.setState({
           user: res.data
