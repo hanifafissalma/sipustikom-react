@@ -8,7 +8,7 @@ import UbahAplikasi from './UbahAplikasi';
 import HapusAplikasi from './HapusAplikasi';
 import Rest from 'fetch-on-rest';
 import $ from 'jquery';
-import {addOptions, service} from './config.js';
+import {addOptions,service} from './config.js';
 
 $.DataTable = require('datatables.net-bs');
 
